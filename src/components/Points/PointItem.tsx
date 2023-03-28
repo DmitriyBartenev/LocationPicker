@@ -22,13 +22,15 @@ const PointItem: React.FC<PointItemProps> = ({
 	};
 
 	return (
-		<li className="point-item" onClick={onSelectLocation}>
-			<p>{address}</p>
-			<div className="point-item__label">
-				{budgets.map((budget, index) => (
-					<span key={index}>{budget}</span>
-				))}
-			</div>
+		<li className="point-item">
+			<button onClick={onSelectLocation}>
+				<p>{address}</p>
+				<div className="point-item__label">
+					{budgets.map((budget, index) => (
+						<span key={index}>{budget}</span>
+					))}
+				</div>
+			</button>
 		</li>
 	);
 };
