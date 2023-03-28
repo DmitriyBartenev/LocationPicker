@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
+import { IPoint } from '../../models/IPoint';
+import PointItem from './PointItem';
 
-const Points: React.FC = () => {
+interface PointsProps {
+	points: IPoint[];
+	setCenter: Dispatch<SetStateAction<[number, number]>>;
+}
+
+const Points: React.FC<PointsProps> = ({ points, setCenter }) => {
 	return (
-		<div>
-			<p>Points</p>
-		</div>
+		<nav className="points">
+			<ul>
+				{points?.map((point, index) => (
+					<PointItem key={index} {...point} setCenter={setCenter} />
+				))}
+			</ul>
+		</nav>
 	);
 };
 
